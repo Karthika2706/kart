@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microblogging App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #4a90e2;
+        }
+        #post-section, #feed-section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 10px;
+            color: #4a90e2;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            margin-bottom: 10px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        #feed {
+            margin-top: 20px;
+        }
+        .post {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .post:last-child {
+            border-bottom: none;
+        }
+        .post-content {
+            margin: 0;
+        }
+        .delete-btn {
+            background-color: #e94e77;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #c43d5b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Microblogging App</h1>
+    
+    <div id="post-section">
+        <h2>Create a Post</h2>
+        <textarea id="post-content" placeholder="What's on your mind?"></textarea><br>
+        <button onclick="createPost()">Post</button>
+    </div>
+    
+    <div id="feed-section">
+        <h2>Your Feed</h2>
+        <div id="feed"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', loadFeed);
+
+        function createPost() {
+            const content = document.getElementById('post-content').value;
+            if (content.trim() === '') {
+                alert("Post cannot be empty!");
+                return;
+            }
+
+            const post = {
+                content: content,
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Save the post in localStorage
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.push(post);
+            localStorage.setItem('posts', JSON.stringify(posts));
+
+            // Clear the textarea
+            document.getElementById('post-content').value = '';
+
+            // Reload the feed
+            loadFeed();
+        }
+
+        function loadFeed() {
+            const feed = document.getElementById('feed');
+            feed.innerHTML = '';
+
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+            posts.forEach((post, index) => {
+                const postDiv = document.createElement('div');
+                postDiv.classList.add('post'); // Added a class to style posts
+
+                // Create the post content
+                postDiv.innerHTML = `
+                    <div>
+                        <p class="post-content">${post.content}</p>
+                        <p>Posted on ${post.timestamp}</p>
+                    </div>
+                    <button class="delete-btn" onclick="deletePost(${index})">Delete</button>
+                `;
+
+                feed.appendChild(postDiv);
+            });
+        }
+
+        function deletePost(index) {
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.splice(index, 1);
+            localStorage.setItem('posts', JSON.stringify(posts));
+
+            // Reload the feed
+            loadFeed();
+        }
+    </script>
+</body>
+</html>
