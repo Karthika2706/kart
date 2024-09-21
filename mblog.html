@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microblogging App</title>
+    <title>Post Feed</title>
+    
+</head>
+<body>
+    <textarea id="post-content" placeholder="What's on your mind?"></textarea>
+    <button onclick="createPost()">Post</button>
+    <div id="feed"></div>
+    
+    <script src="your-script.js"></script> <!-- Make sure to link your JS file here -->
+</body>
+</html>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -118,77 +129,80 @@
     <script>
         document.addEventListener('DOMContentLoaded', loadFeed);
 
-        function createPost() {
-            const content = document.getElementById('post-content').value;
-            if (content.trim() === '') {
-                alert("Post cannot be empty!");
-                return;
-            }
+function createPost() {
+    const content = document.getElementById('post-content').value;
+    if (content.trim() === '') {
+        alert("Post cannot be empty!");
+        return;
+    }
 
-            const post = {
-                content: content,
-                timestamp: new Date().toLocaleString(),
-                likes: 0,
-                likedByUser: false // Track if the current user has liked the post
-            };
+    const post = {
+        content: content,
+        timestamp: new Date().toLocaleString(),
+        likes: 0 // Initialize likes count
+    };
 
-            let posts = JSON.parse(localStorage.getItem('posts')) || [];
-            posts.push(post);
-            localStorage.setItem('posts', JSON.stringify(posts));
+    // Save the post in localStorage
+    let posts = JSON.parse(localStorage.getItem('posts')) || [];
+    posts.push(post);
+    localStorage.setItem('posts', JSON.stringify(posts));
 
-            document.getElementById('post-content').value = '';
-            loadFeed();
-        }
+    // Clear the textarea
+    document.getElementById('post-content').value = '';
 
-        function loadFeed() {
-            const feed = document.getElementById('feed');
-            feed.innerHTML = '';
+    // Reload the feed
+    loadFeed();
+}
 
-            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+function loadFeed() {
+    const feed = document.getElementById('feed');
+    feed.innerHTML = '';
 
-            posts.forEach((post, index) => {
-                const postDiv = document.createElement('div');
-                postDiv.classList.add('post');
+    const posts = JSON.parse(localStorage.getItem('posts')) || [];
 
-                postDiv.innerHTML = `
-                    <div>
-                        <p class="post-content">${post.content}</p>
-                        <p>Posted on ${post.timestamp}</p>
-                        <p>Likes: <span id="like-count-${index}">${post.likes}</span></p>
-                    </div>
-                    ${post.likedByUser ? 
-                        <button class="unlike-btn" onclick="toggleLike(${index})"><span class="emoji">👎</span>Unlike</button> :
-                        <button class="like-btn" onclick="toggleLike(${index})"><span class="emoji">👍</span></button>
-                    }
-                    <button class="delete-btn" onclick="deletePost(${index})">Delete</button>
-                `;
+    posts.forEach((post, index) => {
+        const postDiv = document.createElement('div');
+        postDiv.classList.add('post');
 
-                feed.appendChild(postDiv);
-            });
-        }
+        // Create the post content
+        postDiv.innerHTML = `
+            <div>
+                <p class="post-content">${post.content}</p>
+                <p>Posted on ${post.timestamp}</p>
+                <p>Likes: <span id="like-count-${index}">${post.likes}</span></p>
+            </div>
+            <button class="like-btn" onclick="toggleLike(${index})">${post.likes > 0 ? 'Unlike' : 'Like'}</button>
+            <button class="delete-btn" onclick="deletePost(${index})">Delete</button>
+        `;
 
-        function deletePost(index) {
-            let posts = JSON.parse(localStorage.getItem('posts')) || [];
-            posts.splice(index, 1);
-            localStorage.setItem('posts', JSON.stringify(posts));
-            loadFeed();
-        }
+        feed.appendChild(postDiv);
+    });
+}
 
-        function toggleLike(index) {
-            let posts = JSON.parse(localStorage.getItem('posts')) || [];
-            let post = posts[index];
+function deletePost(index) {
+    let posts = JSON.parse(localStorage.getItem('posts')) || [];
+    posts.splice(index, 1);
+    localStorage.setItem('posts', JSON.stringify(posts));
 
-            if (post.likedByUser) {
-                post.likes -= 1;
-                post.likedByUser = false;
-            } else {
-                post.likes += 1;
-                post.likedByUser = true;
-            }
+    // Reload the feed
+    loadFeed();
+}
 
-            localStorage.setItem('posts', JSON.stringify(posts));
-            loadFeed();
-        }
-    </script>
+function toggleLike(index) {
+    let posts = JSON.parse(localStorage.getItem('posts')) || [];
+    
+    // Increment or decrement likes
+    if (posts[index].likes > 0) {
+        posts[index].likes--;
+    } else {
+        posts[index].likes++;
+    }
+    
+    localStorage.setItem('posts', JSON.stringify(posts));
+    
+    // Reload the feed
+    loadFeed();
+}
+
 </body> 
 </html>
