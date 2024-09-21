@@ -13,10 +13,8 @@
     <textarea id="post-content" placeholder="What's on your mind?"></textarea>
     <button onclick="createPost()">Post</button>
     <div id="feed"></div>
-</body>
-    
     <script>
-        document.addEventListener('DOMContentLoaded', loadFeed);
+    document.addEventListener('DOMContentLoaded', loadFeed);
 
 function createPost() {
     const content = document.getElementById('post-content').value;
@@ -92,6 +90,6 @@ function toggleLike(index) {
     // Reload the feed
     loadFeed();
 }
-
-</body> 
+    </script>
+</body>
 </html>
