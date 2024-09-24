@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full height for centering */
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 90%;
+    max-width: 600px; /* Max width for better control */
+}
+
+h1 {
+    font-size: 2.5em; /* Large font for the title */
+    color: #333; /* Dark gray for contrast */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #007BFF; /* Blue border */
+    background-color: #fff; /* White background */
+    margin-bottom: 10px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: border-color 0.3s; /* Smooth transition */
+}
+
+textarea:focus {
+    border-color: #0056b3; /* Darker blue on focus */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px; /* Space between buttons */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Colorful button styles */
+.post-btn {
+    background-color: #007BFF; /* Blue */
+}
+
+.post-btn:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+#feed {
+    margin-top: 20px; /* Space above the feed */
+    text-align: left; /* Left-align post content */
+}
+
+/* Post styles */
+.post {
+    background: #e9ecef; /* Light background for posts */
+    padding: 15px;
+    margin: 10px 0; /* Space between posts */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #007BFF; /* Blue border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.post-content {
+    font-size: 16px; /* Font size for post content */
+    margin: 0; /* Remove default margin */
+}
+
+.likes-count {
+    font-weight: bold; /* Bold text for likes count */
+    margin: 5px 0; /* Space around likes count */
+}
+
+/* Button styles */
+.like-btn {
+    background-color: #007BFF; /* Blue for like */
+}
+
+.like-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.unlike-btn {
+    background-color: #343a40; /* Dark gray for unlike */
+}
+
+.unlike-btn:hover {
+    background-color: #23272b; /* Darker gray on hover */
+}
+
+.comment-btn {
+    background-color: #28a745; /* Green for comment */
+}
+
+.comment-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.delete-btn {
+    background-color: #dc3545; /* Red for delete */
+}
+
+.delete-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
