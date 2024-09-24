@@ -10,8 +10,7 @@ function createPost() {
     const post = {
         content: content,
         timestamp: new Date().toLocaleString(),
-        likes: 0, // Initialize likes count
-        comments: [] // Initialize comments array
+        likes: 0 // Initialize likes count
     };
 
     // Save the post in localStorage
@@ -42,10 +41,6 @@ function loadFeed() {
                 <p class="post-content">${post.content}</p>
                 <p>Posted on ${post.timestamp}</p>
                 <p>Likes: <span id="like-count-${index}">${post.likes}</span></p>
-                <p>Comments (${post.comments.length}):</p>
-                <div id="comments-${index}">${loadComments(post.comments)}</div>
-                <textarea id="comment-input-${index}" placeholder="Add a comment..."></textarea>
-                <button onclick="addComment(${index})">Comment</button>
             </div>
             <button class="like-btn" onclick="toggleLike(${index})">${post.likes > 0 ? 'Unlike' : 'Like'}</button>
             <button class="delete-btn" onclick="deletePost(${index})">Delete</button>
@@ -53,10 +48,6 @@ function loadFeed() {
 
         feed.appendChild(postDiv);
     });
-}
-
-function loadComments(comments) {
-    return comments.map(comment => `<p>${comment}</p>`).join('');
 }
 
 function deletePost(index) {
@@ -83,23 +74,4 @@ function toggleLike(index) {
     // Reload the feed
     loadFeed();
 }
-
-function addComment(index) {
-    const commentInput = document.getElementById(`comment-input-${index}`);
-    const comment = commentInput.value.trim();
-    
-    if (comment === '') {
-        alert("Comment cannot be empty!");
-        return;
-    }
-    
-    let posts = JSON.parse(localStorage.getItem('posts')) || [];
-    posts[index].comments.push(comment);
-    localStorage.setItem('posts', JSON.stringify(posts));
-    
-    // Clear the comment input
-    commentInput.value = '';
-    
-    // Reload the feed to show the new comment
-    loadFeed();
-}
+   
