@@ -2,7 +2,15 @@ let currentUser = null;
 let users = JSON.parse(localStorage.getItem('users')) || [];
 let posts = JSON.parse(localStorage.getItem('posts')) || [];
 
-
+// Emoji options with counts for comments
+const emojiOptions = [
+    { emoji: '❤️', count: 0 },
+    { emoji: '🙌', count: 0 },
+    { emoji: '🔥', count: 0 },
+    { emoji: '👏', count: 0 },
+    { emoji: '😢', count: 0 },
+    { emoji: '😍', count: 0 },
+];
 
 // Register or login a user
 function registerOrLogin() {
