@@ -4,12 +4,9 @@ let posts = JSON.parse(localStorage.getItem('posts')) || [];
 
 // Emoji options with counts for comments
 const emojiOptions = [
-    { emoji: '❤️', count: 0 },
-    { emoji: '🙌', count: 0 },
     { emoji: '🔥', count: 0 },
     { emoji: '👏', count: 0 },
     { emoji: '😢', count: 0 },
-    { emoji: '😍', count: 0 },
 ];
 
 // Register or login a user
@@ -84,8 +81,8 @@ function loadFeed() {
 
         // Like button for posts
         const likeBtn = document.createElement('button');
+        likeBtn.classList.add('btn', 'like-btn');
         likeBtn.innerHTML = `<i class="fa fa-thumbs-up"></i> Like (${post.likes})`;
-        likeBtn.classList.add('like-btn');
         likeBtn.onclick = function () {
             post.likes++;
             localStorage.setItem('posts', JSON.stringify(posts));
@@ -94,8 +91,8 @@ function loadFeed() {
 
         // Dislike button for posts
         const dislikeBtn = document.createElement('button');
+        dislikeBtn.classList.add('btn', 'dislike-btn');
         dislikeBtn.innerHTML = `<i class="fa fa-thumbs-down"></i> Dislike (${post.dislikes})`;
-        dislikeBtn.classList.add('dislike-btn');
         dislikeBtn.onclick = function () {
             post.dislikes++;
             localStorage.setItem('posts', JSON.stringify(posts));
@@ -104,8 +101,8 @@ function loadFeed() {
 
         // Delete button for posts
         const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('btn', 'delete-btn');
         deleteBtn.innerHTML = `<i class="fa fa-trash"></i> Delete`;
-        deleteBtn.classList.add('delete-btn');
         deleteBtn.onclick = function () {
             posts.splice(posts.indexOf(post), 1);
             localStorage.setItem('posts', JSON.stringify(posts));
@@ -116,7 +113,7 @@ function loadFeed() {
         postDiv.appendChild(dislikeBtn);
         postDiv.appendChild(deleteBtn);
 
-        // Display emojis and allow reacting to the post in horizontal layout
+        // Display emojis and allow reacting to the post
         const emojiDiv = document.createElement('div');
         emojiDiv.classList.add('emoji-container');
         post.emojis.forEach((emojiObj, index) => {
@@ -137,6 +134,7 @@ function loadFeed() {
         const commentDiv = document.createElement('div');
         const commentInput = document.createElement('input');
         commentInput.setAttribute('placeholder', 'Add a comment...');
+        commentInput.classList.add('comment-input');
         const commentPostBtn = document.createElement('button');
         commentPostBtn.textContent = 'Post';
         commentPostBtn.onclick = function () {
@@ -202,3 +200,9 @@ function loadUserList() {
         }
     });
 }
+
+    
+
+                
+           
+           
