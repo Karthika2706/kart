@@ -18,6 +18,7 @@ h2 {
     margin: 0 0 10px;
 }
 
+/* Styles for input fields */
 input[type="text"],
 textarea {
     width: 100%;
@@ -27,31 +28,61 @@ textarea {
     border-radius: 5px;
 }
 
-button {
+/* Styles for post text area */
+#post-content {
+    background-color: #e0f7fa; /* Light cyan background for post area */
+}
+
+/* Button styles */
+.btn {
     padding: 10px 15px;
     border: none;
-    background: #007bff;
-    color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover {
-    background: #0056b3;
+.login-btn {
+    background-color: #007bff; /* Blue for login */
+    color: #fff;
 }
 
+.login-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.logout-btn {
+    background-color: #dc3545; /* Red for logout */
+    color: #fff;
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.post-btn {
+    background-color: #28a745; /* Green for post */
+    color: #fff;
+}
+
+.post-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Feed and post styles */
 #feed {
     margin-top: 20px;
 }
 
 .post {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 15px;
     border-radius: 5px;
-    background: #f9f9f9;
+    background: #f9f9f9; /* Light background for posts */
 }
 
+/* Comment section styles */
 .comment-section {
     margin-top: 10px;
 }
@@ -62,10 +93,16 @@ button:hover {
     margin-right: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #ffe0b2; /* Light peach background for comment area */
 }
 
-.emoji-bar {
-    margin-bottom: 10px;
+.comment-input::placeholder {
+    color: #888; /* Placeholder color */
+}
+
+/* Emoji styles */
+.emoji-container {
+    margin-top: 10px;
 }
 
 .emoji-btn {
@@ -75,6 +112,7 @@ button:hover {
     font-size: 1.2em;
 }
 
+/* Comment styles */
 .comment {
     padding: 5px;
     border-top: 1px solid #eee;
@@ -86,3 +124,30 @@ button:hover {
     cursor: pointer;
     color: red;
 }
+
+/* Like, Dislike, and Delete button styles */
+.like-btn {
+    color: #28a745; /* Green for like */
+}
+
+.like-btn:hover {
+    background-color: rgba(40, 167, 69, 0.1); /* Light green on hover */
+}
+
+.dislike-btn {
+    color: #dc3545; /* Red for dislike */
+}
+
+.dislike-btn:hover {
+    background-color: rgba(220, 53, 69, 0.1); /* Light red on hover */
+}
+
+.delete-btn {
+    color: #ffc107; /* Yellow for delete */
+}
+
+.delete-btn:hover {
+    background-color: rgba(255, 193, 7, 0.1); /* Light yellow on hover */
+}
+
+
