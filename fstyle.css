@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c3e50; /* Dark background color */
+    color: white; /* Default text color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #e74c3c; /* Header color */
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5em; /* Make the heading larger */
+    font-weight: bold; /* Bold text for emphasis */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+}
+
+nav {
+    margin-top: 10px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold; /* Bold text for buttons */
+}
+
+button#home-button,
+button#cart-button {
+    background-color: #f39c12; /* Dark yellow for Home and Cart buttons */
+    color: white;
+}
+
+button#home-button:hover,
+button#cart-button:hover {
+    background-color: #e67e22; /* Darker yellow on hover */
+}
+
+.menu-item button {
+    background-color: #27ae60; /* Green for Add to Cart button */
+    color: white;
+}
+
+.menu-item button:hover {
+    background-color: #219150; /* Darker green on hover */
+}
+
+#cart button {
+    background-color: #34495e; /* Dark color for Place Order button */
+    color: white;
+    padding: 12px 20px; /* Increased padding for emphasis */
+    font-size: 16px; /* Larger font size */
+    border-radius: 8px; /* More rounded corners */
+}
+
+#cart button:hover {
+    background-color: #2c3e50; /* Slightly darker on hover */
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#restaurant-list, #menu, #cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px; /* Limit width for better layout */
+}
+
+.restaurant, .menu-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.2s;
+    background: #ecf0f1; /* Light gray background for contrast */
+}
+
+.restaurant:hover, .menu-item:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for images */
+}
+
+.rating {
+    color: gold;
+    margin: 5px 0;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-item h3 {
+    font-family: 'Courier New', Courier, monospace; /* Font style for food item names */
+    color: black; /* Black color for food item names */
+    margin: 10px 0;
+    font-size: 18px; /* Larger font size for item names */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+.menu-item p {
+    font-size: 16px; /* Slightly larger font for price */
+    color: black; /* Black color for price */
+    margin: 5px 0;
+    background-color: #e9f5e9; /* Light green background for price */
+    padding: 5px;
+    border-radius: 5px; /* Rounded corners for price background */
+}
+
+.restaurant h2 {
+    color: #8e44ad; /* Purple color for restaurant names */
+}
+
+#search-container {
+    margin-top: 10px;
+}
+
+#search-bar {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 300px; /* Adjusted width */
+    background-color: #34495e; /* Dark input background */
+    color: white; /* Text color for input */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Cart total and buttons styling */
+h3 {
+    color: #ecf0f1; /* Light color for headings in the cart */
+}
