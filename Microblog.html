@@ -12,16 +12,17 @@
         <div id="auth-section">
             <h2>Login</h2>
             <input type="text" id="username" placeholder="Enter your username">
-            <button onclick="registerOrLogin()">Login / Register</button>
+            <button class="btn login-btn" onclick="registerOrLogin()">Login / Register</button>
         </div>
 
         <div id="user-section" style="display: none;">
             <h2>Welcome, <span id="current-user"></span></h2>
-            <button onclick="logout()">Logout</button>
+            <button class="btn logout-btn" onclick="logout()">Logout</button>
+
             <div>
                 <h3>Create a Post</h3>
-                <textarea id="post-content" placeholder="What's on your mind?"></textarea>
-                <button onclick="createPost()">Post</button>
+                <textarea id="post-content" placeholder="What's on your mind?" class="post-textarea"></textarea>
+                <button class="btn post-btn" onclick="createPost()">Post</button>
             </div>
 
             <h3>Feed</h3>
