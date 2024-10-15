@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Food Delivery App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ORDERBITES &#x1F354;</h1>
+    </header>
+
+    <main>
+        <section id="login">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="user-name" placeholder="Your Name" required>
+                <input type="password" placeholder="Your Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 @ORDERBITES official</p>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const userName = document.getElementById('user-name').value;
+            localStorage.setItem('userName', userName); // Store the username
+            alert('Login successful! Redirecting to menu...');
+            window.location.href = 'food.html'; // Redirect to main page
+        });
+    </script>
+</body>
+</html>
