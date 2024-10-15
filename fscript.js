@@ -1,4 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+    const locationInput = document.getElementById("location-input");
+    const setLocationButton = document.getElementById("set-location");
+    const locationDisplay = document.getElementById("location-display");
+    const menuSection = document.getElementById("menu");
+    const menuItems = document.getElementById("menu-items");
+    const cartItems = document.getElementById("cart-items");
+    const totalDisplay = document.getElementById("total");
+    const cart = [];
+    
+    let total = 0;
+
+    // Restaurant data with menu items
     const restaurants = {
         1: { name: "Pizzeria", rating: 4.5, location: "Downtown", menu: [
             { name: "Margherita", price: 12, image: "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1460/https://storage.googleapis.com/gen-atmedia/3/2012/07/f2203c0e403286947dcf80815b656236fec71e88.jpeg", available: true, reviews: [] },
@@ -20,8 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
         ]}
     };
 
-    let cart = [];
+    // Location functionality
+    setLocationButton.addEventListener("click", () => {
+        const locationValue = locationInput.value;
+        if (locationValue) {
+            locationDisplay.textContent = `Delivery Location: ${locationValue}`;
+        } else {
+            alert("Please enter a valid location.");
+        }
+    });
 
+    // Show menu for the selected restaurant
     document.querySelectorAll('.view-menu').forEach(button => {
         button.addEventListener('click', (e) => {
             const restaurantId = e.target.closest('.restaurant').dataset.id;
@@ -29,50 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    document.getElementById('back').addEventListener('click', () => {
-        document.getElementById('menu').classList.add('hidden');
-        document.getElementById('restaurants').classList.remove('hidden');
-    });
-
-    document.getElementById('proceed-to-payment').addEventListener('click', () => {
-        document.getElementById('cart').classList.add('hidden');
-        document.getElementById('payment').classList.remove('hidden');
-    });
-
-    document.getElementById('confirm-payment').addEventListener('click', () => {
-        const cardNumber = document.getElementById('card-number').value;
-        const cardExpiry = document.getElementById('card-expiry').value;
-        const cardCVC = document.getElementById('card-cvc').value;
-
-        if (cardNumber && cardExpiry && cardCVC) {
-            alert('Payment Successful! Your order is being processed.');
-            cart = [];
-            updateCart();
-            document.getElementById('payment').classList.add('hidden');
-            document.getElementById('restaurants').classList.remove('hidden');
-        } else {
-            alert('Please fill in all payment fields.');
-        }
-    });
-
-    document.getElementById('back-to-cart').addEventListener('click', () => {
-        document.getElementById('payment').classList.add('hidden');
-        document.getElementById('cart').classList.remove('hidden');
-    });
-
-    document.getElementById('set-location').addEventListener('click', () => {
-        const location = document.getElementById('location-input').value;
-        const displayLocation = document.getElementById('display-location');
-
-        if (location) {
-            displayLocation.textContent = `Location set to: ${location}`;
-        } else {
-            alert('Please enter a location!');
-        }
-    });
-
     function showMenu(restaurantId) {
-        const menuItems = document.getElementById('menu-items');
         menuItems.innerHTML = ''; // Clear existing menu
 
         restaurants[restaurantId].menu.forEach(item => {
@@ -108,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     item.reviews.push(reviewInput.value);
                     const newReviewItem = document.createElement('li');
                     newReviewItem.textContent = reviewInput.value;
-
                     reviewList.appendChild(newReviewItem);
                     reviewInput.value = ''; // Clear input
                 } else {
@@ -123,11 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     addToCart(item, quantity);
                 });
             }
+
             menuItems.appendChild(li);
         });
 
         document.getElementById('restaurants').classList.add('hidden');
-        document.getElementById('menu').classList.remove('hidden');
+        menuSection.classList.remove('hidden');
     }
 
     function addToCart(item, quantity) {
@@ -145,9 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateCart() {
-        const cartItems = document.getElementById('cart-items');
         cartItems.innerHTML = ''; // Clear existing cart
-        let total = 0;
+        total = 0;
 
         cart.forEach((item, index) => {
             const li = document.createElement('li');
@@ -164,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             total += item.price * item.quantity;
         });
 
-        document.getElementById('total').textContent = total.toFixed(2);
+        totalDisplay.textContent = total.toFixed(2);
         document.getElementById('cart').classList.remove('hidden');
     }
 
@@ -172,4 +149,35 @@ document.addEventListener('DOMContentLoaded', () => {
         cart.splice(index, 1); // Remove the item from the cart
         updateCart(); // Update the cart display
     }
+
+    document.getElementById('back').addEventListener('click', () => {
+        menuSection.classList.add('hidden');
+        document.getElementById('restaurants').classList.remove('hidden');
+    });
+
+    document.getElementById('proceed-to-payment').addEventListener('click', () => {
+        document.getElementById('cart').classList.add('hidden');
+        document.getElementById('payment').classList.remove('hidden');
+    });
+
+    document.getElementById('confirm-payment').addEventListener('click', () => {
+        const cardNumber = document.getElementById('card-number').value;
+        const cardExpiry = document.getElementById('card-expiry').value;
+        const cardCVC = document.getElementById('card-cvc').value;
+
+        if (cardNumber && cardExpiry && cardCVC) {
+            alert('Payment Successful! Your order is being processed.');
+            cart.length = 0; // Clear the cart
+            updateCart();
+            document.getElementById('payment').classList.add('hidden');
+            document.getElementById('restaurants').classList.remove('hidden');
+        } else {
+            alert('Please fill in all payment fields.');
+        }
+    });
+
+    document.getElementById('back-to-cart').addEventListener('click', () => {
+        document.getElementById('payment').classList.add('hidden');
+        document.getElementById('cart').classList.remove('hidden');
+    });
 });
