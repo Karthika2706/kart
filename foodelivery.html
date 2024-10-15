@@ -3,23 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORDERBITE</title>
-    <link rel="stylesheet" href="fstyle.css">
+    <title>ORDERBITES Food Delivery Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1><span role="img" aria-label="food">🍔</span> ORDERBITE</h1>
+        <h1>ORDER BITES</h1>
         <nav>
-            <button id="home-button">Home</button>
-            <button id="cart-button">Cart</button>
+            <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="#restaurants">Restaurants</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>
         </nav>
-        <div id="search-container">
-            <input type="text" id="search-bar" placeholder="Search for restaurants or food items...">
-        </div>
     </header>
+
     <main>
-        <div id="content"></div>
+        <div class="main-content">
+            <section id="home">
+                <h2 style="color:#A80000">Welcome To ORDERBITES!! &#x1F354;</h2>
+                <p style="text-align:center; font-size: 1.2em;">"Enjoy every bite with love."</p>
+            </section>
+
+            <section id="location">
+                <h3>Your Location</h3>
+                <input type="text" id="location-input" placeholder="Enter your address">
+                <button id="set-location">Set Location</button>
+                <p id="location-display" style="text-align: center; font-size: 1.1em;"></p>
+            </section>
+
+            <section id="restaurants">
+                <h3>Available Restaurants</h3>
+                <div class="restaurant-grid">
+                    <div class="restaurant" data-id="1">
+                        <img src="https://th.bing.com/th/id/OIP.i_U4wgNwfbCqWIwZJvspRQEvDN?rs=1&pid=ImgDetMain" class="restaurant-image">
+                        <h3>Pizzeria</h3>
+                        <p>Rating: 4.5 ⭐</p>
+                        <p>Location: Downtown</p>
+                        <button class="view-menu">View Menu</button>
+                    </div>
+                    <div class="restaurant" data-id="2">
+                        <img src="https://images.adsttc.com/media/images/5bf3/587a/08a5/e546/9600/024d/large_jpg/a_(1).jpg?1542674533" alt="Sushi Place" class="restaurant-image">
+                        <h3>Sushi Place</h3>
+                        <p>Rating: 4.8 ⭐</p>
+                        <p>Location: Uptown</p>
+                        <button class="view-menu">View Menu</button>
+                    </div>
+                    <div class="restaurant" data-id="3">
+                        <img src="https://cdn.usarestaurants.info/assets/uploads/04574a031fde48bc45f48cd954f4fa24_-united-states-new-york-queens-county-spicy-curry-house-halaal-718-298-9091htm.jpg" alt="Spicy Curry House" class="restaurant-image">
+                        <h3>Spicy Curry House</h3>
+                        <p>Rating: 4.7 ⭐</p>
+                        <p>Location: Downtown</p>
+                        <button class="view-menu">View Menu</button>
+                    </div>
+                    <div class="restaurant" data-id="4">
+                        <img src="https://www.telegraph.co.uk/content/dam/travel/2022/04/07/TELEMMGLPICT000292014252_trans_NvBQzQNjv4BqpVlberWd9EgFPZtcLiMQf0Rf_Wk3V23H2268P_XkPxc.jpeg?imwidth=350" alt="Delhi Diner" class="restaurant-image">
+                        <h3>Delhi Diner</h3>
+                        <p>Rating: 4.8 ⭐</p>
+                        <p>Location: Uptown</p>
+                        <button class="view-menu">View Menu</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="menu" class="hidden">
+                <h2>Menu</h2>
+                <ul id="menu-items"></ul>
+                <button id="back">Back to Restaurants</button>
+            </section>
+
+            <section id="cart" class="hidden">
+                <h3>Your Cart</h3>
+                <div class="cart-container">
+                    <ul id="cart-items"></ul>
+                    <h3>Total: $<span id="total">0.00</span></h3>
+                    <button id="proceed-to-payment">Proceed to Payment</button>
+                </div>
+            </section>
+
+            <section id="payment" class="hidden">
+                <h3>Payment Information</h3>
+                <input type="text" id="card-number" placeholder="Card Number" maxlength="16">
+                <input type="text" id="card-expiry" placeholder="MM/YY">
+                <input type="text" id="card-cvc" placeholder="CVC">
+                <button id="confirm-payment">Confirm Payment</button>
+                <button id="back-to-cart">Back to Cart</button>
+            </section>
+        </div>
     </main>
+
+    <footer>
+        <p>&copy; 2024 ORDERBITES Food Delivery</p>
+    </footer>
+
     <script src="fscript.js"></script>
 </body>
 </html>
