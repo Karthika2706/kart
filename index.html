@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Page</title>
     <style>
-        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Verdana', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(to bottom right, #e0f7fa, #80deea);
         }
 
-        
         .menu {
-            background-color: #333;
+            background-color: #00695c;
             color: #fff;
-            padding: 10px;
+            padding: 15px;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
         .menu ul {
             list-style: none;
@@ -27,60 +26,79 @@
         }
         .menu li {
             display: inline-block;
-            margin-right: 20px;
+            margin-right: 30px;
         }
         .menu a {
             color: #fff;
             text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
         }
         .menu a:hover {
-            color: #4CAF50;
+            color: #ffab40;
+            text-decoration: underline;
         }
 
-        
         .container {
+            max-width: 600px;
+            margin: 40px auto;
             padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
         .container h1 {
-            color: #333;
+            color: #004d40;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            font-family: 'Georgia', serif;
         }
 
-       
         .list {
             list-style: none;
             padding: 0;
+            text-align: left;
         }
         .list li {
-            display: inline-block;
-            margin: 10px;
+            margin: 15px 0;
         }
         .list a {
-            color: #333;
+            display: block;
+            color: #004d40;
             text-decoration: none;
-            font-size: 18px;
-            padding: 10px 20px;
-            border: 2px solid #333;
+            font-size: 20px;
+            padding: 15px;
+            background-color: #ffcc80;
             border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
         }
         .list a:hover {
-            background-color: #333;
+            background-color: #ffa726;
             color: #fff;
+            transform: scale(1.05);
         }
 
-       
         footer {
-            background-color: #333;
+            background-color: #00695c;
             color: #fff;
             text-align: center;
-            padding: 10px;
-            position: absolute;
+            padding: 15px;
+            position: relative;
             bottom: 0;
             width: 100%;
+            margin-top: 30px;
         }
         footer p {
             margin: 0;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            .menu li {
+                display: block;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
@@ -95,11 +113,10 @@
     <div class="container">
         <h1>Welcome</h1>
         <ul class="list">
-            <li><a href="portfolio.html">Portfolio</a></li><br><br>
-            <li><a href="todolist.html">To-Do List</a></li><br><br>
-            <li><a href="Microblog.html">Microblogging</a></li><br><br>
-            <li><a href="login.html">Food Delivery</a></li><br><br>
-           
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="todolist.html">To-Do List</a></li>
+            <li><a href="Microblog.html">Microblogging</a></li>
+            <li><a href="login.html">Food Delivery</a></li>
         </ul>
     </div>
     <footer>
@@ -107,3 +124,4 @@
     </footer>
 </body>
 </html>
+
