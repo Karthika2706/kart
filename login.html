@@ -5,6 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Food Delivery App</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #ff6347; /* Tomato color */
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #login {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 150px; /* Minimized width */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #ff6347; /* Tomato color */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e5533d; /* Darker shade on hover */
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,7 +77,6 @@
             <h2>Login</h2>
             <form id="login-form">
                 <input type="text" id="user-name" placeholder="Your Name" required>
-                <input type="password" placeholder="Your Password" required>
                 <button type="submit">Login</button>
             </form>
         </section>
