@@ -1,10 +1,14 @@
+
+
+// Initialize items and cart
 const items = JSON.parse(localStorage.getItem('items')) || [];
 const cart = [];
 let currentUser = localStorage.getItem('currentUser');
 
-// Check if the login page is loaded
-if (document.getElementById('loginBtn')) {
-    document.getElementById('loginBtn').addEventListener('click', () => {
+// Handle login functionality
+if (document.getElementById('loginForm')) {
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
@@ -43,8 +47,7 @@ document.getElementById('postAdBtn').addEventListener('click', () => {
 });
 
 document.getElementById('cartBtn').addEventListener('click', () => {
-    displayCart();
-    document.getElementById('itemList').innerHTML = '';
+    window.location.href = 'cart.html'; // Redirect to cart page
 });
 
 // Adding item functionality
@@ -57,18 +60,29 @@ if (document.getElementById('submitItemBtn')) {
         const itemImageInput = document.getElementById('itemImage');
 
         if (itemName && itemPrice) {
-            const item = {
-                name: itemName,
-                price: itemPrice,
-                description: itemDescription,
-                owner: currentUser,
-                image: itemImageInput.files[0] ? URL.createObjectURL(itemImageInput.files[0]) : null,
+            const file = itemImageInput.files[0];
+            const reader = new FileReader();
+
+            reader.onloadend = function () {
+                const item = {
+                    name: itemName,
+                    price: itemPrice,
+                    description: itemDescription,
+                    owner: currentUser,
+                    image: reader.result, // Store the base64 string
+                };
+                items.push(item);
+                localStorage.setItem('items', JSON.stringify(items)); // Save items to localStorage
+                displayItems();
+                document.getElementById('itemForm').reset();
+                document.getElementById('itemForm').classList.add('hidden');
             };
-            items.push(item);
-            localStorage.setItem('items', JSON.stringify(items)); // Save items to localStorage
-            displayItems();
-            document.getElementById('itemForm').reset();
-            document.getElementById('itemForm').classList.add('hidden');
+
+            if (file) {
+                reader.readAsDataURL(file); // Convert image to base64
+            } else {
+                alert('Please upload an image.');
+            }
         } else {
             alert('Please fill in all fields.');
         }
@@ -117,42 +131,25 @@ function removeItem(e) {
     displayItems();
 }
 
-function displayCart() {
-    const cartItems = document.getElementById('cartItems');
-    cartItems.innerHTML = '';
-    cart.forEach((item, index) => {
-        const cartItemDiv = document.createElement('div');
-        cartItemDiv.classList.add('cart-item');
-        cartItemDiv.innerHTML = `
-            <h3>${item.name}</h3>
-            <p><strong>Price:</strong> $${item.price}</p>
-            <button class="remove-cart-btn" data-index="${index}">Remove from Cart</button>
-        `;
-        cartItems.appendChild(cartItemDiv);
-    });
-    document.getElementById('checkoutBtn').classList.remove('hidden');
-    document.getElementById('cart').classList.remove('hidden');
-
-    document.querySelectorAll('.remove-cart-btn').forEach(button => {
-        button.addEventListener('click', removeFromCart);
-    });
-}
-
-function removeFromCart(e) {
-    const index = e.target.getAttribute('data-index');
-    cart.splice(index, 1);
-    displayCart();
-}
-
 // Checkout functionality
-document.getElementById('checkoutBtn').addEventListener('click', () => {
-    const paymentMethod = prompt('Please enter your payment method (e.g., Credit Card, PayPal):');
-    if (paymentMethod) {
-        alert(`Checkout successful! Payment method: ${paymentMethod}`);
-        cart.length = 0; // Clear the cart
-        displayCart();
-    }
-});
+if (document.getElementById('checkoutBtn')) {
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+        const paymentMethodContainer = document.getElementById('paymentOptions');
+        paymentMethodContainer.classList.remove('hidden');
+    });
+
+    document.querySelectorAll('.payment-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const paymentMethod = e.target.getAttribute('data-method');
+            const cardDetails = prompt(`Enter your card details for ${paymentMethod}:\nCard Number:\nCVC:`);
+            if (cardDetails) {
+                alert('Order placed successfully! 🎉');
+                cart.length = 0; // Clear the cart
+                window.location.href = 'index.html'; // Redirect to main page
+            }
+        });
+    });
+}
 
 // Display items on initial load
 if (document.getElementById('itemList')) {
