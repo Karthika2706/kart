@@ -32,7 +32,6 @@ button {
     cursor: pointer;
     border-radius: 5px;
     font-size: 1em;
-    transition: background 0.3s, color 0.3s;
 }
 
 /* Button colors */
@@ -60,67 +59,21 @@ button:hover {
     filter: brightness(0.9);
 }
 
-/* Item display styles */
-#itemList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
-
-.item {
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-}
-
-.item:hover {
-    transform: scale(1.05);
-}
-
-.item-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    border-radius: 5px;
-}
-
-/* Cart styles */
-#cart {
-    background: #fff3cd;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-.cart-item {
-    background: #fff3cd;
-    border: 1px solid #ffeeba;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px;
-}
-
-/* Form styles */
+/* Centering the item form */
 #itemForm {
     background: white;
     border-radius: 5px;
     padding: 20px;
-    margin: 20px;
+    margin: 20px auto; /* Center horizontally */
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Limit width */
 }
 
-#itemForm input, #itemForm textarea {
+/* Input and textarea styles */
+#itemForm input,
+#itemForm textarea {
     width: calc(100% - 22px);
-    padding: 10px;
+    padding: 8px; /* Reduced padding */
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -139,6 +92,71 @@ button:hover {
 }
 
 #submitItemBtn:hover {
+    background: #45a049; /* Darker green on hover */
+}
+
+/* Item display styles */
+#itemList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.item {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px; /* Increased padding */
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px; /* Set to match Post an Ad layout */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item-image {
+    max-width: 50%; /* Keep image size at half */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Cart styles */
+#cart {
+    background: #ffffff; /* Set to white for contrast */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Checkout button */
+.checkout-btn {
+    background: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.checkout-btn:hover {
     background: #45a049; /* Darker green on hover */
 }
 
@@ -161,7 +179,7 @@ button:hover {
 /* Remove from Cart button */
 .remove-from-cart-btn {
     background: #e74c3c; /* Red for remove */
-    color: white;
+    color: red;
     border: none;
     padding: 8px 12px;
     margin-top: 10px;
@@ -187,6 +205,63 @@ button:hover {
     }
 
     .item {
-        width: 90%;
+        width: 90%; /* Adjust width on smaller screens */
     }
+
+    #itemForm {
+        width: 90%; /* Full width on smaller screens */
+    }
+}
+
+/* Login Page Styles */
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background: #ffffff; /* White background for the form */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login-container h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #4CAF50; /* Main color */
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-container button:hover {
+    background: #45a049; /* Darker green on hover */
+}
+
+.message {
+    margin-top: 15px;
+}
+
+.message a {
+    color: #4CAF50; /* Link color */
+    text-decoration: none;
+}
+
+.message a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
