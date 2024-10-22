@@ -15,7 +15,7 @@ if (document.getElementById('loginForm')) {
         if (username && password) {
             localStorage.setItem('currentUser', username);
             alert('Login successful!');
-            window.location.href = 'index.html'; // Redirect to main page
+            window.location.href = 'web.html'; // Redirect to main page
         } else {
             alert('Please enter both username and password.');
         }
