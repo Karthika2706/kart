@@ -15,7 +15,7 @@ if (document.getElementById('loginForm')) {
         if (username && password) {
             localStorage.setItem('currentUser', username);
             alert('Login successful!');
-            window.location.href = 'web.html'; // Redirect to main page
+            window.location.href = 'ex5/web.html'; // Redirect to main page
         } else {
             alert('Please enter both username and password.');
         }
@@ -26,13 +26,13 @@ if (document.getElementById('loginForm')) {
 if (document.getElementById('logoutBtn')) {
     if (!currentUser) {
         alert('You need to log in first!');
-        window.location.href = 'login.html'; // Redirect to login if not logged in
+        window.location.href = 'ex5/login.html'; // Redirect to login if not logged in
     }
 
     document.getElementById('logoutBtn').addEventListener('click', () => {
         localStorage.removeItem('currentUser');
         alert('Logged out successfully!');
-        window.location.href = 'login.html';
+        window.location.href = 'ex5/login.html';
     });
 }
 
@@ -47,7 +47,7 @@ document.getElementById('postAdBtn').addEventListener('click', () => {
 });
 
 document.getElementById('cartBtn').addEventListener('click', () => {
-    window.location.href = 'cart.html'; // Redirect to cart page
+    window.location.href = 'ex5/cart.html'; // Redirect to cart page
 });
 
 // Adding item functionality
@@ -145,7 +145,7 @@ if (document.getElementById('checkoutBtn')) {
             if (cardDetails) {
                 alert('Order placed successfully! 🎉');
                 cart.length = 0; // Clear the cart
-                window.location.href = 'index.html'; // Redirect to main page
+                window.location.href = 'ex5/web.html'; // Redirect to main page
             }
         });
     });
