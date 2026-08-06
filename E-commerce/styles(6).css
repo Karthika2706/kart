@@ -1,0 +1,231 @@
+/* General Body and Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fb;  /* A very mild and soft background color to keep the page calm and readable */
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Navbar Styles */
+nav {
+    background-color:#073545  ;  /* Vibrant coral red for the header */
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+nav h1 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Navbar Button Styling */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #47c5f0;  /* Bright yellow for buttons */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #FF8C00;  /* Orange shade when hovered */
+    transform: scale(1.05);  /* Slightly enlarge the button on hover */
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow around content */
+    border-radius: 10px;
+}
+
+/* Hidden Class for Toggling Sections */
+.hidden {
+    display: none;
+}
+
+/* Home Section (Available Products) */
+#home {
+    background-color:#c2ecf1  ;  /* Soft purple background for the products section */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Light shadow for section */
+    margin-bottom: 30px;  /* Space between sections */
+}
+
+#home h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Product Section (Grid Layout) */
+#products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 products per row */
+    gap: 20px;
+    justify-items: center;  /* Center the products horizontally */
+}
+
+.product {
+    background-color: #FFFFFF;  /* White background for product cards */
+    border: 1px solid #D3D3D3;  /* Light gray border */
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    max-width: 250px;  /* Limit the width of product card */
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Light shadow for products */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);  /* Slightly lift product card on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);  /* Enhanced shadow on hover */
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;  /* Limit max width of product images */
+    margin-bottom: 10px;
+    object-fit: cover;  /* Ensures image aspect ratio is preserved */
+}
+
+.product h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Add to Cart Button */
+.product .add-to-cart-button {
+    background-color: #0d53cd  !important;  /* Soft green for Add to Cart button */
+    color: white !important;
+    border: none !important;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;  /* Full width for better visibility */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.product .add-to-cart-button:hover {
+    background-color: #45a049 !important;  /* Darker green when hovered */
+    transform: scale(1.05);
+}
+
+/* Delete Button */
+.product .delete-button {
+    background-color: #FF6347 !important;  /* Coral red for Delete button */
+    color: white !important;
+    border: none !important;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;  /* Full width for better visibility */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.product .delete-button:hover {
+    background-color: #e60000 !important;  /* Darker red when hovered */
+    transform: scale(1.05);
+}
+
+/* Buy Now Button */
+.product .buy-now-button {
+    background-color: #28A745 !important;  /* Bright green for Buy Now button */
+    color: white !important;
+    border: none !important;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;  /* Full width for better visibility */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.product .buy-now-button:hover {
+    background-color: #218838 !important;  /* Darker green when hovered */
+    transform: scale(1.05);
+}
+
+/* Cart Section Styles */
+#cart {
+    background-color: #FFF3E3;  /* Soft peach background for the cart */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+#cart input {
+    width: calc(100% - 16px);
+    padding: 10px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#cart div {
+    margin-top: 15px;
+}
+
+#payment-details {
+    margin-top: 20px;
+}
+
+#payment-details input {
+    width: calc(100% - 16px);
+    padding: 10px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Cart Buttons */
+#cart button {
+    background-color: #FF4500;  /* Orange-red for cart action buttons */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#cart button:hover {
+    background-color: #FF6347;  /* Slightly lighter orange-red on hover */
+    transform: scale(1.05);
+}
+ss
