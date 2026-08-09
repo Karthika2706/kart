@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATMOS — Weather Station</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <div class="scanline"></div>
+
+  <header class="panel-header">
+    <div class="brand">
+      <span class="brand-mark">◎</span>
+      <span class="brand-name">ATMOS</span>
+      <span class="brand-tag">STATION READOUT</span>
+    </div>
+
+    <form id="search-form" class="search-form" autocomplete="off">
+      <input type="text" id="city-input" placeholder="Enter a city…" aria-label="City name">
+      <button type="submit" aria-label="Search">→</button>
+    </form>
+
+    <button id="locate-btn" class="locate-btn" title="Use my location">◈ locate me</button>
+  </header>
+
+  <main id="app">
+
+    <!-- API key gate -->
+    <section id="key-gate" class="key-gate">
+      <p class="key-gate-title">Instrument requires calibration</p>
+      <p class="key-gate-copy">Enter a free OpenWeatherMap API key to power the readout. It's stored only in this browser.</p>
+      <form id="key-form" class="key-form">
+        <input type="text" id="api-key-input" placeholder="Paste your API key…" aria-label="OpenWeatherMap API key">
+        <button type="submit">Calibrate</button>
+      </form>
+      <a href="https://home.openweathermap.org/users/sign_up" target="_blank" rel="noopener">Get a free key at openweathermap.org →</a>
+    </section>
+
+    <!-- Loading -->
+    <section id="loading-state" class="state-message" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Reading the sky…</p>
+    </section>
+
+    <!-- Error -->
+    <section id="error-state" class="state-message" hidden>
+      <p id="error-text">Station offline. Check the city name and try again.</p>
+    </section>
+
+    <!-- Main readout -->
+    <section id="readout" class="readout" hidden>
+
+      <div class="dial-block">
+        <div class="dial-wrap">
+          <svg viewBox="0 0 240 240" class="dial" id="temp-dial" aria-hidden="true">
+            <circle class="dial-track" cx="120" cy="120" r="100"></circle>
+            <circle class="dial-fill" cx="120" cy="120" r="100" id="dial-fill"></circle>
+            <g id="dial-ticks"></g>
+          </svg>
+          <div class="dial-center">
+            <span id="temp-value" class="temp-value">--</span>
+            <span class="temp-unit-row">
+              <button class="unit-btn active" data-unit="C" id="unit-c">°C</button>
+              <span class="unit-sep">/</span>
+              <button class="unit-btn" data-unit="F" id="unit-f">°F</button>
+            </span>
+          </div>
+        </div>
+        <p id="feels-like" class="feels-like">feels like --°</p>
+      </div>
+
+      <div class="info-block">
+        <p class="location-name" id="location-name">—</p>
+        <p class="condition" id="condition">—</p>
+        <p class="hi-lo"><span id="temp-high">--°</span> high &nbsp;·&nbsp; <span id="temp-low">--°</span> low</p>
+
+        <div class="gauge-grid">
+          <div class="gauge">
+            <span class="gauge-label">Humidity</span>
+            <span class="gauge-value" id="humidity">--%</span>
+          </div>
+          <div class="gauge">
+            <span class="gauge-label">Wind</span>
+            <span class="gauge-value" id="wind">-- km/h</span>
+          </div>
+          <div class="gauge">
+            <span class="gauge-label">Pressure</span>
+            <span class="gauge-value" id="pressure">-- hPa</span>
+          </div>
+          <div class="gauge">
+            <span class="gauge-label">Visibility</span>
+            <span class="gauge-value" id="visibility">-- km</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="forecast-block">
+        <p class="forecast-label">5-Day Trace</p>
+        <div class="forecast-strip" id="forecast-strip"></div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="panel-footer">
+    <span>Data via OpenWeatherMap</span>
+    <span id="last-updated"></span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
