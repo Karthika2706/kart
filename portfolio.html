@@ -1,197 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karthika V - Resume</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karthika V – Resume</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", sans-serif;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #f4f6f8;
-      padding: 20px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 13.5px;
+      color: #1a1a1a;
+      background: #e9edf0;
+      line-height: 1.5;
+      padding: 24px 0;
     }
 
-    .resume {
-      max-width: 900px;
-      margin: auto;
-      background: #ffffff;
-      padding: 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 0 12px rgba(0,0,0,0.08);
     }
 
+    /* ── Header ── */
     .header {
-      background: #2f4f4f;
-      color: #ffffff;
-      padding: 20px;
-      text-align: center;
+      background: #2d4a5a;
+      color: #fff;
+      padding: 28px 36px 24px;
     }
-
     .header h1 {
-      margin-bottom: 8px;
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+      margin-bottom: 6px;
     }
-
-    .header a {
-      color: #ffffff;
+    .header .contact {
+      font-size: 12.5px;
+      color: #d0dde5;
+    }
+    .header .contact a {
+      color: #d0dde5;
       text-decoration: none;
-      font-weight: 500;
+    }
+    .header .contact strong {
+      color: #fff;
     }
 
-    section {
-      margin-top: 25px;
+    /* ── Body ── */
+    .body {
+      padding: 20px 36px 36px;
     }
 
-    h2 {
-      border-bottom: 2px solid #2f4f4f;
-      padding-bottom: 5px;
+    /* ── Section ── */
+    .section {
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #1a1a1a;
+      border-bottom: 1.5px solid #aaa;
+      padding-bottom: 4px;
       margin-bottom: 10px;
-      color: #2f4f4f;
     }
 
-    p {
-      margin: 6px 0;
+    /* ── Summary ── */
+    .summary p {
+      font-size: 13px;
       line-height: 1.6;
     }
 
-    ul {
-      margin-left: 20px;
+    /* ── Education ── */
+    .edu-entry {
+      margin-bottom: 8px;
     }
-
-    li {
-      margin-bottom: 6px;
-    }
-
-    .row {
+    .edu-row {
       display: flex;
       justify-content: space-between;
-      margin-top: 10px;
-      font-weight: 600;
+      align-items: baseline;
+    }
+    .edu-degree {
+      font-weight: bold;
+      font-size: 13.5px;
+    }
+    .edu-year {
+      font-size: 13px;
+      color: #333;
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+    .edu-detail {
+      font-size: 13px;
+      color: #333;
     }
 
-    @media (max-width: 600px) {
-      .row {
-        flex-direction: column;
-      }
+    /* ── Skills ── */
+    .skills-group {
+      margin-bottom: 6px;
+    }
+    .skills-group-title {
+      font-weight: bold;
+      font-size: 13.5px;
+      margin-bottom: 3px;
+    }
+    .skills-list {
+      list-style: disc;
+      padding-left: 22px;
+    }
+    .skills-list li {
+      font-size: 13px;
+      margin-bottom: 1px;
+    }
+    .skills-list li strong {
+      font-weight: bold;
+    }
+
+    /* ── Internship ── */
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .exp-title {
+      font-weight: bold;
+      font-size: 13.5px;
+    }
+    .exp-date {
+      font-size: 13px;
+      color: #333;
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+    .exp-company {
+      font-style: italic;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+    .exp-bullets {
+      list-style: disc;
+      padding-left: 22px;
+    }
+    .exp-bullets li {
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    /* ── Projects ── */
+    .project-entry {
+      margin-bottom: 12px;
+    }
+    .project-title {
+      font-weight: bold;
+      font-size: 13.5px;
+    }
+    .project-tech {
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+    .project-tech strong {
+      font-weight: bold;
+    }
+    .project-bullets {
+      list-style: disc;
+      padding-left: 22px;
+    }
+    .project-bullets li {
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    /* ── Certifications ── */
+    .cert-list {
+      list-style: disc;
+      padding-left: 22px;
+    }
+    .cert-list li {
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    /* ── Languages ── */
+    .languages p {
+      font-size: 13px;
+    }
+
+    @media print {
+      body { font-size: 12px; background: #fff; padding: 0; }
+      .page { max-width: 100%; box-shadow: none; margin: 0.5in; }
+      @page { margin: 0.6in; }
     }
   </style>
-
 </head>
 <body>
+<div class="page">
 
-  <div class="resume">
-
-    <!-- Header -->
-    <div class="header">
-      <h1>Karthika V</h1>
-      <p>
-        karthikavengadesh77@gmail.com | +91 8682982633 |
-        <a href="https://github.com/Karthika2706" target="_blank">GitHub</a>
-      </p>
+  <!-- Header -->
+  <div class="header">
+    <h1>Karthika V</h1>
+    <div class="contact">
+      karthikavengadesh477@gmail.com &nbsp;|&nbsp; +91 8682982633 &nbsp;|&nbsp;
+      <strong>GitHub:</strong> <a href="https://karthika2706.github.io/kart/"
+>https://karthika2706.github.io/kart/</a>
     </div>
-
-    <!-- Summary -->
-    <section>
-      <h2>Summary</h2>
-      <p>
-        Motivated and enthusiastic graduate seeking an internship to gain hands-on experience in
-        Web Development, UI/UX, and Cloud Computing. Quick learner with a passion for technology
-        and innovation. Able to work well in a team and adapt to new challenges.
-      </p>
-    </section>
-
-    <!-- Education -->
-    <section>
-      <h2>Education</h2>
-
-      <div class="row">
-        <strong>B.Tech – Information Technology</strong>
-        <span>Expected 2026</span>
-      </div>
-      <p>University College of Engineering (BIT Campus), Tiruchirappalli<br>CGPA: 7.89</p>
-
-      <div class="row">
-        <strong>HSC</strong>
-        <span>2022</span>
-      </div>
-      <p>Bharath Montessori Matric Hr. Sec. School – Ilanji<br>Percentage: 92.3%</p>
-
-      <div class="row">
-        <strong>SSLC</strong>
-        <span>2020</span>
-      </div>
-      <p>Bharath Montessori Matric Hr. Sec. School – Ilanji<br>Percentage: 98%</p>
-    </section>
-
-    <!-- Skills -->
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li><strong>Programming & Web:</strong> Python, C, HTML, CSS, JavaScript, PHP, Bootstrap, SQL</li>
-        <li><strong>UI/UX Design:</strong> Wireframing, Prototyping, User Journey Mapping, Figma, Miro, Whimsical</li>
-        <li><strong>Tools & Platforms:</strong> VS Code, Sublime Text, XAMPP, MySQL, Git, GitHub</li>
-      </ul>
-    </section>
-
-    <!-- Internship -->
-    <section>
-      <h2>Internship</h2>
-
-      <div class="row">
-        <strong>Intern – Full Stack Web Development</strong>
-        <span>July 2025</span>
-      </div>
-      <p>Mist Solutions, Coimbatore</p>
-
-      <ul>
-        <li>Constructed high-fidelity website mockups aligned with client specifications.</li>
-        <li>Developed front-end and back-end using HTML, CSS, JavaScript, PHP, and SQL.</li>
-        <li>Implemented server-side logic and database connectivity using PHP and MySQL.</li>
-        <li>Used XAMPP for local server environment and testing.</li>
-      </ul>
-    </section>
-
-    <!-- Projects -->
-    <section>
-      <h2>Projects</h2>
-
-      <p><strong>Full-Stack and Front-End Development Portfolio</strong></p>
-      <p><em>Technologies:</em> PHP, CSS, JavaScript, Bootstrap, MySQL</p>
-      <ul>
-        <li>Developed a comprehensive portfolio with modules like E-commerce, Food Delivery, Leave Management, and Microblogging.</li>
-        <li>Created responsive client website prototypes for Bright Interiors and Nandi Diamond.</li>
-      </ul>
-
-      <p><strong>UI/UX Design and Prototyping</strong></p>
-      <p><em>Tools:</em> Figma, Mural, Whimsical</p>
-      <ul>
-        <li>Designed an interactive Book Reading Application prototype with intuitive navigation and typography.</li>
-      </ul>
-    </section>
-
-    <!-- Certifications -->
-    <section>
-      <h2>Certifications</h2>
-      <ul>
-        <li>UI/UX Designing using ChatGPT – Simplilearn SkillUp</li>
-        <li>Generative AI in Action – IBM SkillsBuild</li>
-        <li>Microsoft Office Essentials – Microsoft & Naan Mudhalvan</li>
-        <li>Salesforce Developer – ServiceNow / Smartbridge & Naan Mudhalvan</li>
-      </ul>
-    </section>
-
-    <!-- Languages -->
-    <section>
-      <h2>Languages</h2>
-      <p>Tamil (Native) | English</p>
-    </section>
-
   </div>
 
+  <div class="body">
+
+    <!-- Summary -->
+    <div class="section summary">
+      <div class="section-title">Summary</div>
+      <p>B.Tech Information Technology graduate (2026) with hands-on experience in Full-Stack Web Development using HTML, CSS, JavaScript, PHP, Bootstrap, and MySQL. Developed multiple web applications and UI/UX prototypes. Seeking opportunities as a Web Developer, Front-End Developer, Full-Stack Developer, or Software Developer.</p>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-title">Education</div>
+
+      <div class="edu-entry">
+        <div class="edu-row">
+          <span class="edu-degree">B.Tech Information Technology</span>
+          <span class="edu-year"> 2026</span>
+        </div>
+        <div class="edu-detail">University College of Engineering (BIT Campus), Tiruchirappalli &nbsp;|&nbsp; CGPA: 8.18/10</div>
+      </div>
+
+      <div class="edu-entry">
+        <div class="edu-row">
+          <span class="edu-degree">Higher Secondary Certificate (HSC)</span>
+          <span class="edu-year">2022</span>
+        </div>
+        <div class="edu-detail">Bharath Montessori Matric Hr. Sec. School, Ilanji &nbsp;|&nbsp; 92.3%</div>
+      </div>
+
+      <div class="edu-entry">
+        <div class="edu-row">
+          <span class="edu-degree">Secondary School Leaving Certificate (SSLC)</span>
+          <span class="edu-year">2020</span>
+        </div>
+        <div class="edu-detail">Bharath Montessori Matric Hr. Sec. School, Ilanji &nbsp;|&nbsp; 98%</div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <div class="section-title">Skills</div>
+
+      <div class="skills-group">
+        <div class="skills-group-title">Technical Skills</div>
+        <ul class="skills-list">
+          <li><strong>Languages:</strong> Python, C, JavaScript, PHP, SQL</li>
+          <li><strong>Frontend:</strong> HTML, CSS, Bootstrap</li>
+          <li><strong>Database:</strong> MySQL</li>
+          <li><strong>UI/UX:</strong> Figma, Wireframing, Prototyping, User Journey Mapping</li>
+          <li><strong>Tools:</strong> VS Code, Sublime Text, XAMPP, Git, GitHub</li>
+        </ul>
+      </div>
+
+      <div class="skills-group">
+        
+    </div>
+
+    <!-- Internship -->
+    <div class="section">
+      <div class="section-title">Internship</div>
+
+      <div class="exp-header">
+        <span class="exp-title">Intern – Full-Stack Web Development</span>
+        <span class="exp-date">July 2025</span>
+      </div>
+      <div class="exp-company">Mist Solutions, Coimbatore</div>
+      <ul class="exp-bullets">
+        <li>Designed and developed responsive web pages for client projects.</li>
+        <li>Developed responsive front-end interfaces and back-end functionality using HTML, CSS, JavaScript, and PHP.</li>
+        <li>Developed server-side logic and database connectivity using PHP and MySQL.</li>
+        <li>Used XAMPP for local server environment and testing.</li>
+      </ul>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <div class="section-title">Projects</div>
+
+      <div class="project-entry">
+        <div class="project-title">Bidirectional Sign Language Translation System</div>
+        <div class="project-tech"><strong>Technologies:</strong> Python, OpenCV, CNN, LSTM, Blender, Unity</div>
+        <ul class="project-bullets">
+          <li>Developed real-time sign-to-text translation using CNN and LSTM models.</li>
+          <li>Implemented text-to-sign translation using a 3D avatar using Blender and Unity.</li>
+          <li>Used OpenCV for hand gesture detection and preprocessing.</li>
+          <li>Built to support communication for hearing and speech-impaired individuals.</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">Full-Stack and Front-End Development Portfolio</div>
+        <div class="project-tech"><strong>Technologies:</strong> PHP, CSS, JavaScript, Bootstrap, MySQL</div>
+        <ul class="project-bullets">
+          <li>Designed and developed five web applications: E-commerce, Food Delivery, Leave Management, Microblogging, and Personal Portfolio.</li>
+          <li>Implemented responsive web design principles to ensure compatibility across devices.</li>
+          <li>Developed client website prototypes for Bright Interiors and Nandi Diamond.</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">UI/UX Design and Prototyping</div>
+        <div class="project-tech"><strong>Tools:</strong> Figma, Mural, Whimsical</div>
+        <ul class="project-bullets">
+          <li>Designed a high-fidelity interactive mobile prototype for a book reading application using Figma.</li>
+          <li>Focused on improving user experience through intuitive navigation and accessible typography.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="section">
+      <div class="section-title">Certifications</div>
+      <ul class="cert-list">
+        <li>Generative AI in Action – IBM</li>
+        <li>Salesforce Developer – Smartbridge</li>
+        <li>UI/UX Designing using ChatGPT – Simplilearn</li>
+        <li>Microsoft Office Essentials – TNSDC</li>
+      </ul>
+    </div>
+
+    <!-- Languages -->
+    <div class="section languages">
+      <div class="section-title">Languages</div>
+      <p>Tamil (Native) &nbsp;|&nbsp; English</p>
+    </div>
+
+  </div><!-- /body -->
+</div><!-- /page -->
 </body>
 </html>
